@@ -13,7 +13,7 @@ const INITIAL_STATE = {
   email: '',
   password: '',
   error: '',
-  userName: '',
+  username: '',
   user: null,
   loading: false,
 };
@@ -27,7 +27,7 @@ export default (state = INITIAL_STATE, action) => {
     case PASSWORD_CHANGED:
       return {...state, password: action.payload};
     case USERNAME_CHANGED:
-      return {...state, userName: action.payload};
+      return {...state, username: action.payload};
     case LOGIN_USER:
       return {...state, error: '', loading: true};
     case LOGIN_USER_SUCCESS:

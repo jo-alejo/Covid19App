@@ -39,7 +39,9 @@ export const loginUser = ({email, password}) => {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(user => loginUserSuccess(dispatch, user))
+      .then(user => {
+        console.log(email);
+        loginUserSuccess(dispatch, user)})
       .catch(() => loginUserFail(dispatch));
   };
 };
@@ -47,7 +49,7 @@ export const loginUser = ({email, password}) => {
 export const singupUser = ({username, email, password}) => {
   return dispatch => {
     dispatch({type: SIGNUP_USER});
-    console.log(`Trying to insert: ${username}`);
+    console.log(username);
 
     firebase
       .auth()
@@ -55,6 +57,7 @@ export const singupUser = ({username, email, password}) => {
       .then(user => {
         if (firebase.auth().currentUser) {
           const userId = firebase.auth().currentUser.uid;
+          console.log(userId);
           if (userId) {
             firebase
               .database()
