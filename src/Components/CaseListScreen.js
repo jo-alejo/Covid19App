@@ -1,8 +1,10 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
-import {Container, Text, List, ListItem} from 'native-base';
+import {Container, Text, List, ListItem, Card} from 'native-base';
+import {FlatList} from 'react-native';
 import {connect} from 'react-redux';
 import {caseFetch} from '../Actions';
+import CaseItem from './Common/CaseItem';
 
 class CaseListScreen extends Component {
   componentDidMount() {
@@ -15,13 +17,12 @@ class CaseListScreen extends Component {
   }
   render() {
     return (
-      <Container>
-        <List
-          dataSource={this.props.cases}
-          keyExtractor={item => item.uid}
-          renderItem={({item}) => <ListItem case={item} />}
-        />
-      </Container>
+      <FlatList
+        style={{flex: 1}}
+        data={this.props.cases}
+        keyExtractor={item => item.uid}
+        renderItem={({item}) => <CaseItem case={item} />}
+      />
     );
   }
 }
@@ -33,7 +34,4 @@ const mapStateToProps = state => {
   return {cases};
 };
 
-export default connect(
-  mapStateToProps,
-  {caseFetch},
-)(CaseListScreen);
+export default connect(mapStateToProps, {caseFetch})(CaseListScreen);
