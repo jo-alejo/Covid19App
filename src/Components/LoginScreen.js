@@ -37,7 +37,7 @@ class LoginScreen extends Component {
   }
   renderButton() {
     if (this.props.loading) {
-      return <Spinner />;
+      return <Spinner color="#2b387c" />;
     }
     return (
       <Button

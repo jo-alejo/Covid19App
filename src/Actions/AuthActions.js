@@ -41,7 +41,8 @@ export const loginUser = ({email, password}) => {
       .signInWithEmailAndPassword(email, password)
       .then(user => {
         console.log(email);
-        loginUserSuccess(dispatch, user)})
+        loginUserSuccess(dispatch, user);
+      })
       .catch(() => loginUserFail(dispatch));
   };
 };
