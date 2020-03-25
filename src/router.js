@@ -7,6 +7,7 @@ import SignupScreen from './Components/SignupScreen';
 import CaseListScreen from './Components/CaseListScreen';
 import AddCaseScreen from './Components/AddCaseScreen';
 import AccountSettingsScreen from './Components/AccountSettingsScreen';
+import UpdateCaseScreen from './Components/UpdateCaseScreen';
 import TabIcon from './Components/TabIcon';
 
 const RouterComponent = () => {
@@ -51,6 +52,11 @@ const RouterComponent = () => {
             iconName="md-person"
           />
         </Tabs>
+        <Scene
+          key="updateCase"
+          component={UpdateCaseScreen}
+          title="Update case"
+        />
       </Stack>
     </Router>
   );

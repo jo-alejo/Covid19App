@@ -48,6 +48,7 @@ class CaseForm extends Component {
               <Label>Age</Label>
               <Input
                 value={this.props.patientAge}
+                keyboardType={'numeric'}
                 onChangeText={value =>
                   this.props.caseUpdate({prop: 'patientAge', value})
                 }
@@ -134,4 +135,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(mapStateToProps, caseUpdate)(CaseForm);
+export default connect(mapStateToProps, {caseUpdate})(CaseForm);

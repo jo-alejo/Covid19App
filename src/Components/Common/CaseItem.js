@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import {Right, Text, Icon, ListItem, List, Body} from 'native-base';
-import {StyleSheet} from 'react-native';
+import {Actions} from 'react-native-router-flux';
 
 class CaseItem extends Component {
+  onRowPress() {
+    Actions.updateCase({case: this.props.case});
+  }
   render() {
     const {patientCode, patientName} = this.props.case;
     return (
@@ -14,18 +17,12 @@ class CaseItem extends Component {
             </Text>
           </Body>
           <Right>
-            <Icon name="arrow-forward" />
+            <Icon onPress={this.onRowPress.bind(this)} name="arrow-forward" />
           </Right>
         </ListItem>
       </List>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  cardItemS: {
-    flex: 1,
-  },
-});
 
 export default CaseItem;
