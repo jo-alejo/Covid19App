@@ -9,12 +9,12 @@ import {Actions} from 'react-native-router-flux';
 
 export const caseFetch = () => {
   const {currentUser} = firebase.auth();
-  return dispacth => {
+  return dispatch => {
     firebase
       .database()
       .ref(`users/${currentUser.uid}/caseBag`)
       .on('value', snapshot => {
-        dispacth({type: CASE_FETCH_SUCCESS, payload: snapshot.val()});
+        dispatch({type: CASE_FETCH_SUCCESS, payload: snapshot.val()});
       });
   };
 };
@@ -28,13 +28,13 @@ export const caseCreate = ({
   Lat,
 }) => {
   const {currentUser} = firebase.auth();
-  return dispacth => {
+  return dispatch => {
     firebase
       .database()
       .ref(`users/${currentUser.uid}/caseBag`)
       .push({patientCode, patientName, patientAge, pClassification, Lon, Lat})
       .then(() => {
-        dispacth({type: CASE_CREATE});
+        dispatch({type: CASE_CREATE});
         Actions.casesList();
       });
   };

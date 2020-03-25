@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
-import {Container, Text, List, ListItem, Card} from 'native-base';
 import {FlatList} from 'react-native';
 import {connect} from 'react-redux';
 import {caseFetch} from '../Actions';
@@ -16,6 +15,7 @@ class CaseListScreen extends Component {
     }
   }
   render() {
+    console.log(this.props.cases);
     return (
       <FlatList
         style={{flex: 1}}

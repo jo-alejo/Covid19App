@@ -15,7 +15,6 @@ import {caseUpdate} from '../Actions';
 
 class CaseForm extends Component {
   render() {
-    console.log(this.props);
     return (
       <>
         <Card transparent>
@@ -65,7 +64,7 @@ class CaseForm extends Component {
                   this.props.caseUpdate({prop: 'pClassification', value})
                 }>
                 <Picker.Item label="Suspicious" value="Suspicious" />
-                <Picker.Item label="Confirmed" vacaselue="Confirmed" />
+                <Picker.Item label="Confirmed" value="Confirmed" />
               </Picker>
             </Item>
           </Form>

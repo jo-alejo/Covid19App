@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
-import {Right, Text, Icon, ListItem, List, Body} from 'native-base';
+import {Text, Icon, ListItem, List, Body, Button} from 'native-base';
+import {StyleSheet} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
 class CaseItem extends Component {
-  onRowPress() {
+  onEditPress() {
+    console.log(this.props.case);
     Actions.updateCase({case: this.props.case});
+  }
+  onOpenPress() {
+    console.log(this.props.case);
+    Actions.caseDetail({case: this.props.case});
   }
   render() {
     const {patientCode, patientName} = this.props.case;
@@ -12,17 +18,29 @@ class CaseItem extends Component {
       <List>
         <ListItem>
           <Body>
-            <Text>
+            <Text style={styles.textStyle}>
               {patientCode} - {patientName}
             </Text>
           </Body>
-          <Right>
-            <Icon onPress={this.onRowPress.bind(this)} name="arrow-forward" />
-          </Right>
+          <Button transparent style={styles.buttonStyle}>
+            <Icon name="open" onPress={this.onOpenPress.bind(this)} />
+          </Button>
+          <Button transparent style={styles.buttonStyle}>
+            <Icon name="create" onPress={this.onEditPress.bind(this)} />
+          </Button>
         </ListItem>
       </List>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  buttonStyle: {
+    padding: 3,
+  },
+  textStyle: {
+    fontSize: 17,
+  },
+});
 
 export default CaseItem;

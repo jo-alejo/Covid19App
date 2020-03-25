@@ -8,6 +8,7 @@ import CaseListScreen from './Components/CaseListScreen';
 import AddCaseScreen from './Components/AddCaseScreen';
 import AccountSettingsScreen from './Components/AccountSettingsScreen';
 import UpdateCaseScreen from './Components/UpdateCaseScreen';
+import CaseDetailScreen from './Components/CaseDetailScreen';
 import TabIcon from './Components/TabIcon';
 
 const RouterComponent = () => {
@@ -56,6 +57,16 @@ const RouterComponent = () => {
           key="updateCase"
           component={UpdateCaseScreen}
           title="Update case"
+          hideNavBar={false}
+        />
+        <Scene
+          key="caseDetail"
+          component={CaseDetailScreen}
+          title="Case"
+          hideNavBar={false}
+          rightTitle="Edit"
+          onRight={() => Actions.updateCase()}
+          onLeft={() => Actions.casesList()}
         />
       </Stack>
     </Router>

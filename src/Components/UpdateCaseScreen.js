@@ -33,6 +33,7 @@ class UpdateCaseScreen extends Component {
     });
   }
   render() {
+    console.log(this.props.case);
     return (
       <ScrollView>
         <Container style={styles.container}>

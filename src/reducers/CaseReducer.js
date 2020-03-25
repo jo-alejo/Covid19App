@@ -1,4 +1,4 @@
-import {CASE_FETCH_SUCCESS} from '../Actions/types';
+import {CASE_FETCH_SUCCESS, SINGLE_CASE_FETCH_SUCCESS} from '../Actions/types';
 
 const INITIAL_STATE = {};
 
