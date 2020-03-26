@@ -64,7 +64,7 @@ export const caseSave = ({
       .set({patientCode, patientName, patientAge, pClassification, Lon, Lat})
       .then(() => {
         dispatch({type: CASE_SAVE_SUCCESS});
-        Actions.pop();
+        Actions.pop({type: 'reset'});
       });
   };
 };

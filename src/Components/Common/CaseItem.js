@@ -5,11 +5,9 @@ import {Actions} from 'react-native-router-flux';
 
 class CaseItem extends Component {
   onEditPress() {
-    console.log(this.props.case);
     Actions.updateCase({case: this.props.case});
   }
   onOpenPress() {
-    console.log(this.props.case);
     Actions.caseDetail({case: this.props.case});
   }
   render() {

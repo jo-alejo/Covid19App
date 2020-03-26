@@ -15,7 +15,6 @@ class CaseListScreen extends Component {
     }
   }
   render() {
-    console.log(this.props.cases);
     return (
       <FlatList
         style={{flex: 1}}

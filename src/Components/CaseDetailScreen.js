@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
 import {Container, Text, Card, CardItem} from 'native-base';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, ActivityIndicator} from 'react-native';
 import {connect} from 'react-redux';
 import {caseUpdate} from '../Actions';
-//import MapView from 'react-native-maps';
+import MapView, {Circle, PROVIDER_GOOGLE} from 'react-native-maps';
 
 class CaseDetailScreen extends Component {
   componentDidMount() {
@@ -13,10 +13,30 @@ class CaseDetailScreen extends Component {
     });
   }
 
+  renderMap(Reg) {
+    return (
+      <MapView style={styles.mapView} provider={PROVIDER_GOOGLE} region={Reg}>
+        <Circle
+          center={Reg}
+          radius={25}
+          strokeColor="rgba(158,158,255,1.0)"
+          fillColor="rgba(158,158,255,0.3)"
+        />
+      </MapView>
+    );
+  }
+
   render() {
-    console.log(this.props.case);
+    const Region = {
+      latitude: parseFloat(this.props.case.Lat),
+      longitude: parseFloat(this.props.case.Lon),
+      latitudeDelta: 0.01,
+      longitudeDelta: 0.01,
+    };
+    console.log(Region);
     return (
       <Container>
+        {Region ? this.renderMap(Region) : <ActivityIndicator size="large" />}
         <Card transparent>
           <CardItem>
             <Text>Code Case: {this.props.case.patientCode}</Text>
@@ -58,9 +78,12 @@ const mapStateToProps = state => {
 
 const styles = StyleSheet.create({
   mapView: {
-    flex: 1,
-    width: 300,
+    height: 400,
+    width: 400,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
 });
 
+// eslint-disable-next-line prettier/prettier
 export default connect(mapStateToProps, {caseUpdate})(CaseDetailScreen);
