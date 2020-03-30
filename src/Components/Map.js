@@ -18,8 +18,8 @@ class Map extends Component {
       region: {
         latitude: parseFloat(this.props.case.Lat),
         longitude: parseFloat(this.props.case.Lon),
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
+        latitudeDelta: 0.009,
+        longitudeDelta: 0.009,
       },
     };
   }

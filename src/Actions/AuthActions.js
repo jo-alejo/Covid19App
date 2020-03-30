@@ -40,7 +40,6 @@ export const loginUser = ({email, password}) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(user => {
-        console.log(email);
         loginUserSuccess(dispatch, user);
       })
       .catch(() => loginUserFail(dispatch));
@@ -50,15 +49,12 @@ export const loginUser = ({email, password}) => {
 export const singupUser = ({username, email, password}) => {
   return dispatch => {
     dispatch({type: SIGNUP_USER});
-    console.log(username);
-
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(user => {
         if (firebase.auth().currentUser) {
           const userId = firebase.auth().currentUser.uid;
-          console.log(userId);
           if (userId) {
             firebase
               .database()

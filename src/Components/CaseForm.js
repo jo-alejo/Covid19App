@@ -75,22 +75,22 @@ class CaseForm extends Component {
           </CardItem>
           <Form>
             <Item stackedLabel>
-              <Label>Longitude</Label>
-              <Input
-                keyboardType={'decimal-pad'}
-                value={this.props.Lon}
-                onChangeText={value =>
-                  this.props.caseUpdate({prop: 'Lon', value})
-                }
-              />
-            </Item>
-            <Item stackedLabel>
               <Label>Latitude</Label>
               <Input
                 keyboardType={'decimal-pad'}
                 value={this.props.Lat}
                 onChangeText={value =>
                   this.props.caseUpdate({prop: 'Lat', value})
+                }
+              />
+            </Item>
+            <Item stackedLabel>
+              <Label>Longitude</Label>
+              <Input
+                keyboardType={'decimal-pad'}
+                value={this.props.Lon}
+                onChangeText={value =>
+                  this.props.caseUpdate({prop: 'Lon', value})
                 }
               />
             </Item>

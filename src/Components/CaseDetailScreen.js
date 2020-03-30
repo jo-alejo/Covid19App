@@ -13,6 +13,7 @@ class CaseDetailScreen extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <Container>
         <Map {...this.props} />

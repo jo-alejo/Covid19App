@@ -66,7 +66,7 @@ const RouterComponent = () => {
           hideNavBar={false}
           rightTitle="Edit"
           onRight={() => Actions.updateCase()}
-          onLeft={() => Actions.casesList()}
+          onLeft={() => Actions.casesList({type: 'reset'})}
         />
       </Stack>
     </Router>
